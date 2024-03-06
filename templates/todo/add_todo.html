@@ -1,0 +1,45 @@
+{% extends 'partials/base.html' %}
+
+{% block title %}
+Add Todo
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h1>Add Todo</h1>
+        <form method="post" class="mt-4">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="completed" name="completed">
+                <label class="form-check-label" for="completed">Completed</label>
+            </div>
+            <div class="mb-3">
+                <label for="due_date" class="form-label">Due Date</label>
+                <input type="date" class="form-control" id="due_date" name="due_date">
+            </div>
+            <div class="mb-3">
+                <label for="priority" class="form-label">Priority</label>
+                <select class="form-select" id="priority" name="priority">
+                    {% for priority in priorities %}
+                    <option value="{{ priority.id }}">{{ priority.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="categories" class="form-label">Categories</label>
+                <select class="form-select" id="categories" name="categories" multiple>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

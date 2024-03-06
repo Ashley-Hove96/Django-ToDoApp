@@ -1,0 +1,39 @@
+{% extends 'partials/base.html' %}
+
+{% block title %}
+Priorities
+{% endblock %}
+
+{% block content %}
+<h1>Priorities</h1>
+<!-- Add your priority list content here -->
+    <div class="row">
+    <div class="col">
+        <h1>Priorities</h1>
+        <a href="{% url 'add_priority' %}" class="btn btn-primary mb-3">Add Priority</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for priority in priorities %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ priority.name }}</td>
+                    <td>{{ priority.level }}</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
