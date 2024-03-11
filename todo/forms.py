@@ -1,5 +1,13 @@
 from django import forms
+
+from .models import ToDoItem
 from .models import Todo, Category, Priority
+
+
+class ToDoItemForm(forms.ModelForm):
+    class Meta:
+        model = ToDoItem
+        fields = ['title', 'description', 'priority']
 
 
 class TodoForm(forms.ModelForm):

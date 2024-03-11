@@ -31,7 +31,7 @@ Add Todo
                 </select>
             </div>
             <div class="mb-3">
-                <label for="categories" class="form-label">Categories</label>
+                <label for="categories" class="form-label">Category</label>
                 <select class="form-select" id="categories" name="categories" multiple>
                     {% for category in categories %}
                     <option value="{{ category.id }}">{{ category.name }}</option>
